@@ -3,8 +3,6 @@
 
 // class Statistics extends Component {
 //   render() {
-    
-
 //   }
 // }
 // export default Feedback;
