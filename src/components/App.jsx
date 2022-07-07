@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Statistics from "./Statistics";
+// import Statistics from "./Statistics";
 
 class App extends Component {
   static defaultProps = {};
