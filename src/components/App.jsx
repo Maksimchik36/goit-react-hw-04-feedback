@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-// import Statistics from "./Statistics";
+import Statistics from "./Statistics";
+import FeedbackOptions from "./FeedbackOptions";
 
 class App extends Component {
   static defaultProps = {};
@@ -39,14 +40,16 @@ class App extends Component {
       <button onClick ={this.handleButtonClick} type="button" name="neutral">Neutral</button>
       <button onClick={this.handleButtonClick} type="button" name="bad">Bad</button>
 
-      <p>Statistics</p>
-      <ul>
-        <li>Good: {this.state.good}</li>
-        <li>Neutral: {this.state.neutral}</li>
-        <li>Bad: {this.state.bad}</li>
-        <li>Total: {this.countTotalFeedback()}</li>
-        <li>Positive feedback: {this.countPositiveFeedbackPercentage() || 0}%</li>
-      </ul>      
+      <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={this.handleButtonClick}></FeedbackOptions>
+
+
+      <Statistics 
+      good={this.state.good} 
+      neutral={this.state.neutral} 
+      bad={this.state.bad} 
+      total={this.countTotalFeedback()} 
+      positivePercentage={this.countPositiveFeedbackPercentage() || 0}
+      ></Statistics>
     </div>      
   );
   }

@@ -1,8 +1,14 @@
-// import { useState } from 'react';
-// import React, { Component } from "react";
+const Statistics = ({good, neutral, bad, total, positivePercentage}) => { 
+  return (<div>
+  <p>Statistics</p>
+  <ul><li>Good: {good}</li>
+    <li>Neutral: {neutral}</li>
+    <li>Bad: {bad}</li>
+    <li>Total: {total}</li>
+    <li>Positive feedback: {positivePercentage || 0}%</li>
+  </ul>  
+  </div>
+  )    
+  }
 
-// class Statistics extends Component {
-//   render() {
-//   }
-// }
-// export default Feedback;
+export default Statistics;
