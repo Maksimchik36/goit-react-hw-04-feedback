@@ -9,6 +9,7 @@ export const Container = styled.div`
     //   height: 100vh;
        
       background-image: url(https://www.sciencedebate2008.com/wp-content/uploads/1488182916_0_558_6016_3942_1280x0_80_0_0_29e547ea5f536de5b55bf66eb756806f.jpg);
+      background-size: cover;   
       `
   
   ;
