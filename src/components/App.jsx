@@ -34,14 +34,10 @@ class App extends Component {
         color: '#010101'
       }}
     >
-        {/* React homework template */}
-      <p>Please leave feedback</p>
-      <button onClick ={this.handleButtonClick} type="button" name="good">Good</button>
-      <button onClick ={this.handleButtonClick} type="button" name="neutral">Neutral</button>
-      <button onClick={this.handleButtonClick} type="button" name="bad">Bad</button>
-
-      <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={this.handleButtonClick}></FeedbackOptions>
-
+           <FeedbackOptions 
+      options={['good', 'neutral', 'bad']} 
+      onLeaveFeedback={this.handleButtonClick}
+      ></FeedbackOptions>
 
       <Statistics 
       good={this.state.good} 
