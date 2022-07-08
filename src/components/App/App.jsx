@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import Section from "./Section";
-import Statistics from "./Statistics";
-import FeedbackOptions from "./FeedbackOptions";
-import Notification from "./Notification";
+import Section from "../Section";
+import Statistics from "../Statistics";
+import FeedbackOptions from "../FeedbackOptions";
+import Notification from "../Notification";
+
+import { Container } from './App.styled';
 
 class App extends Component {
   static defaultProps = {};
@@ -22,11 +24,12 @@ class App extends Component {
   };
   
   countTotalFeedback = ()=>{return Number(this.state.good)+Number(this.state.neutral)+Number(this.state.bad)};
-  countPositiveFeedbackPercentage = () => { return Math.round(Number(this.state.good)/this.countTotalFeedback()*100)};
+  
+  countPositiveFeedbackPercentage = () => { return Math.round(Number(this.state.good) / this.countTotalFeedback() * 100) };
 
   render() {
    return (
-    <div
+    <Container
       style={{
         height: '100vh',
         // display: 'flex',
@@ -45,7 +48,7 @@ class App extends Component {
            
        
        {this.countTotalFeedback() === 0 ? <Notification message="There is no feedback"></Notification>
-                                        : <Section title="Statistics">
+                                        : <Section title="Statistics:">
                                             <Statistics                                               
                                                good={this.state.good} 
                                                neutral={this.state.neutral} 
@@ -54,7 +57,7 @@ class App extends Component {
                                                positivePercentage={this.countPositiveFeedbackPercentage() || 0}
                                              ></Statistics>
                                           </Section>}
-    </div>      
+    </Container>      
   );
   }
 };
