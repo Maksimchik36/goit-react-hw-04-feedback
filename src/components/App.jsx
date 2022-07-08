@@ -1,6 +1,8 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import Section from "./Section";
 import Statistics from "./Statistics";
 import FeedbackOptions from "./FeedbackOptions";
+import Notification from "./Notification";
 
 class App extends Component {
   static defaultProps = {};
@@ -33,19 +35,25 @@ class App extends Component {
         fontSize: 40,
         color: '#010101'
       }}
-    >
-           <FeedbackOptions 
-      options={['good', 'neutral', 'bad']} 
-      onLeaveFeedback={this.handleButtonClick}
-      ></FeedbackOptions>
-
-      <Statistics 
-      good={this.state.good} 
-      neutral={this.state.neutral} 
-      bad={this.state.bad} 
-      total={this.countTotalFeedback()} 
-      positivePercentage={this.countPositiveFeedbackPercentage() || 0}
-      ></Statistics>
+     >
+      <Section title = "Please leave feedback">
+          <FeedbackOptions 
+             options={['good', 'neutral', 'bad']} 
+             onLeaveFeedback={this.handleButtonClick}
+          ></FeedbackOptions>
+      </Section>
+           
+       
+       {this.countTotalFeedback() === 0 ? <Notification message="There is no feedback"></Notification>
+                                        : <Section title="Statistics">
+                                            <Statistics                                               
+                                               good={this.state.good} 
+                                               neutral={this.state.neutral} 
+                                               bad={this.state.bad} 
+                                               total={this.countTotalFeedback()} 
+                                               positivePercentage={this.countPositiveFeedbackPercentage() || 0}
+                                             ></Statistics>
+                                          </Section>}
     </div>      
   );
   }
