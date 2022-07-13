@@ -15,7 +15,7 @@ class App extends Component {
   good: 0,
   neutral: 0,
   bad: 0,
-    }
+  }
     
   handleButtonClick = (event) => {
     this.setState(prevState => {
@@ -24,10 +24,10 @@ class App extends Component {
   };
   
   countTotalFeedback = ()=>{
-    const goodMark = Number(this.state.good);
-    const neutralMark = Number(this.state.neutral);
-    const badMark = Number(this.state.bad);
-    return goodMark + neutralMark + badMark;
+    return Object.values(this.state).reduce((previousValue, number) => {
+      return previousValue + number;
+    }, 0);
+ 
   };
   
   countPositiveFeedbackPercentage = () => { 
@@ -50,10 +50,11 @@ class App extends Component {
        {totalFeedback === 0 ? 
             <Notification message="There is no feedback"></Notification>
             : <Section title="Statistics:">
-                <Statistics                                                        
-                   good={this.state.good} 
-                   neutral={this.state.neutral} 
-                   bad={this.state.bad} 
+                <Statistics          
+                  options={Object.entries(this.state)}                                              
+                  //  good={this.state.good} 
+                  //  neutral={this.state.neutral} 
+                  //  bad={this.state.bad} 
                    total={this.countTotalFeedback()} 
                    positivePercentage={this.countPositiveFeedbackPercentage() || 0}
                  ></Statistics>

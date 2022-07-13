@@ -6,5 +6,9 @@ text-align: left;
 
 export const List = styled.ul`
 list-style: none;
-margin: 10px 0;
+margin: 0;
+`
+
+export const Item = styled.li`
+text-transform: capitalize;
 `

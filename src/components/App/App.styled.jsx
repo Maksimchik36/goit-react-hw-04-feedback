@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
 height: 100vh; 
-// display: flex;
 padding: 20px;
 background:
 linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
